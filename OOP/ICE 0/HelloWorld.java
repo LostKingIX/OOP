@@ -1,4 +1,3 @@
-import java.lang.annotation.Inherited;
 import java.util.Scanner;
 
 // Author: Kuldeep Mohanta

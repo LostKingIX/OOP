@@ -1,4 +1,4 @@
-public class IntCalculation () {
+public class IntCalculation {
 
     public static void main(String[] args) {
      

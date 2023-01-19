@@ -1,7 +1,7 @@
 import java.text.Format;
 import java.util.Scanner;
 
-public class ExampleIO() {
+public class ExampleIO {
     public static void main(String[] args) {
         
         //Initializing Scanner for system input
@@ -14,7 +14,7 @@ public class ExampleIO() {
 
         scanner.nextLine();
 
-        System.out.printf(Format: "Hello Mr. %s, nice to meet you!\n");
+        System.out.printf("Hello Mr. %s, nice to meet you!\n", firstName);
 
         System.out.print("Press [Enter] to exit: ");
 
