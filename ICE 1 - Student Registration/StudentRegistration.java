@@ -17,14 +17,23 @@ public class StudentRegistration {
 
     // Constants
     static final String SET_TITLE = "\033]0;%s\007  \t";
+    static final String CLEAR_TERMINAL = "\033c";
 
     //RAW String - multiline string
     static final String INPUT_BANNER = """ 
     *******************************
         ~ Welcome to Durham College! ~
                 
-        *******************************
+    *******************************
     """;
+
+    static final String OUTPUT_BANNER = """
+    *******************************
+    ~ Student Information ~
+                
+    *******************************
+            
+            """;
 
     public static void main(String[] args) {
         
@@ -41,6 +50,7 @@ public class StudentRegistration {
         String courseName;
         int courseDuration;
         int currentSemester;
+        int semestersLeft;
 
 
         //Set title
@@ -66,11 +76,21 @@ public class StudentRegistration {
         System.out.print("Enter your current Semester: ");
         currentSemester = Integer.parseInt(scanner.nextLine());
 
+        //Calculations
+        semestersLeft = courseDuration - currentSemester;
 
+        //Output Screen 
+        //Clear Screen
+        System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
 
+        //Print the information
+        System.out.println("Full Name: " + studentFullName);
+        System.out.println("Course Name: " + courseName);
 
-
-
+        //Formatted String
+        System.out.printf("Course Duration: %d", courseDuration);
+        System.out.printf("Current Semester: %d", currentSemester);
+        System.out.printf("Student has %d semesters remaining!", semestersLeft);
 
         //Exit Prompt
         System.out.print("\nPress [Enter] to Exit application: ");
