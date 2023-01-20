@@ -9,11 +9,14 @@ public class trycatch {
 
         //Variables
         int age;
+
+        //Setting Default values
+        age = 0;
         boolean numeric;
 
         // ask for the age
         System.out.print("Enter your age: ");
-        
+
         //Try catch block
         try
         {
