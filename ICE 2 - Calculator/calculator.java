@@ -10,20 +10,20 @@ import java.util.Scanner;
 public class calculator {
     
     //Constants
-    static final String SET_TITLE = "\033]0;%s\007  \t";
+    static final String SET_TITLE = "\033]0;%s\007";
 
     //RAW String - multiline string
     static final String INPUT_BANNER = """ 
-    *******************************
+    ****************
     ~ Calculator ~          
-    *******************************
+    ****************
     """;
 
     static final String OUTPUT_BANNER = """
-    *******************************
-    ~ Calculator ~            
-    *******************************
-            """;
+    ****************
+    ~ Calculator ~          
+    ****************            
+    """;
 
     public static void main(String[] args) {
         
@@ -67,8 +67,46 @@ public class calculator {
         //Trim excess input
         scanner.nextLine();
 
-        //Print the calculation
-        System.out.printf("%s %s %s", number1, operator, number2);
+        //Switch case
+
+        switch(operator)
+        {
+            //Addition
+            case '+':
+                result = number1 + number2;
+                break;
+            //Subtraction
+            case '-':
+                result = number1 - number2;
+                break;
+            //Multiplication
+            case '*':
+                result = number1 * number2;
+                break;
+            
+            //Division
+            case '/':
+                //Error catch - cannot divide by zero
+                if (number2 ==0)
+                {
+                    System.out.println("Error - Cannot divide by 0!");
+                    valid = false;
+                }
+                else
+                    result = number1 / number2;
+                break;
+            default:
+                System.out.println("Error - Invalid Operator");
+                valid = false; // Not a valid calculation
+                break;
+        }
+
+        if(valid)
+        {
+            //Print the calulations
+            System.out.printf("%s %s %s = %s \n",number1, operator, number2, result);
+
+        }
 
         //Exit prompt
         System.out.print("Press [Enter] to exit! ");
