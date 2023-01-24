@@ -18,17 +18,17 @@ public class StudentRegistration {
 
     //RAW String - multiline string
     static final String INPUT_BANNER = """ 
-    *******************************
-    ~ Welcome to Durham College! ~
+    ***************************
+    ~ Student Registration ~
                 
-    *******************************
+    ***************************
     """;
 
     static final String OUTPUT_BANNER = """
-    *******************************
+    *************************
     ~ Student Information ~
                 
-    *******************************
+    *************************
             
             """;
 
