@@ -71,12 +71,12 @@ public class StudentRegistration {
         currentSemester = Integer.parseInt(scanner.nextLine());
 
         //Calculations
-        //int semestersLeft = 0;
-        //semestersLeft = courseDuration - currentSemester;
+        int semestersLeft = 0;
+        semestersLeft = courseDuration - currentSemester;
 
         //Output Screen 
         //Clear Screen
-        //System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
+        System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
 
         //Print the information
         System.out.printf("Full Name: %s\n", studentFullName);
@@ -85,10 +85,10 @@ public class StudentRegistration {
         //Formatted String
         System.out.printf("Course Duration: %d\n", courseDuration);
         System.out.printf("Current Semester: %d\n", currentSemester);
-        //System.out.printf("Student has %d semesters remaining!\n", semestersLeft);
+        System.out.printf("Student has %d semesters remaining!\n", semestersLeft);
 
         //Exit Prompt
-        //System.out.print("\nPress [Enter] to Exit application: ");
+        System.out.print("\nPress [Enter] to Exit application: ");
         scanner.nextLine();
         scanner.close();
 
