@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class StudentRegistration {
 
     // Constants
-    static final String SET_TITLE = "\033]0;%s\007  \t";
+    static final String SET_TITLE = "\033]0;%s\007";
     static final String CLEAR_TERMINAL = "\033c";
 
     //RAW String - multiline string
@@ -38,23 +38,17 @@ public class StudentRegistration {
     public static void main(String[] args) {
         
         //Declaring Variables
-        String studentFirstName;
-        String studentLastName;
-        String studentFullName;
+        String studentName = " ";
+        String courseName = " ";
+        String studentFullName = " ";
+        int courseDuration = 0;
+        int currentSemester = 0;
 
         //Initializing Scanner for system input
         Scanner scanner = new Scanner(System.in);
 
-        //Variables Declaration
-        String studentName;
-        String courseName;
-        int courseDuration;
-        int currentSemester;
-        int semestersLeft;
-
-
         //Set title
-        System.out.printf(SET_TITLE, "Student Information - Kuldeep Mohanta");
+        System.out.printf(SET_TITLE, "Hello User - Kuldeep Mohanta");
 
         // Print the Banner
         System.out.println(INPUT_BANNER);
@@ -77,35 +71,27 @@ public class StudentRegistration {
         currentSemester = Integer.parseInt(scanner.nextLine());
 
         //Calculations
-        semestersLeft = courseDuration - currentSemester;
+        //int semestersLeft = 0;
+        //semestersLeft = courseDuration - currentSemester;
 
         //Output Screen 
         //Clear Screen
-        System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
+        //System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
 
         //Print the information
-        System.out.println("Full Name: " + studentFullName);
-        System.out.println("Course Name: " + courseName);
+        System.out.printf("Full Name: %s\n", studentFullName);
+        System.out.printf("Course Name: %s\n", courseName);
 
         //Formatted String
-        System.out.printf("Course Duration: %d", courseDuration);
-        System.out.printf("Current Semester: %d", currentSemester);
-        System.out.printf("Student has %d semesters remaining!", semestersLeft);
+        System.out.printf("Course Duration: %d\n", courseDuration);
+        System.out.printf("Current Semester: %d\n", currentSemester);
+        //System.out.printf("Student has %d semesters remaining!\n", semestersLeft);
 
         //Exit Prompt
-        System.out.print("\nPress [Enter] to Exit application: ");
+        //System.out.print("\nPress [Enter] to Exit application: ");
         scanner.nextLine();
         scanner.close();
 
-
-
-
-
-
-
-
-        //Close Scanner
-        scanner.close();
     }
     
 }
