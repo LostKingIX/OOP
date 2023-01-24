@@ -22,7 +22,7 @@ public class StudentRegistration {
     //RAW String - multiline string
     static final String INPUT_BANNER = """ 
     *******************************
-        ~ Welcome to Durham College! ~
+    ~ Welcome to Durham College! ~
                 
     *******************************
     """;
@@ -38,9 +38,8 @@ public class StudentRegistration {
     public static void main(String[] args) {
         
         //Declaring Variables
-        String studentName = " ";
-        String courseName = " ";
         String studentFullName = " ";
+        String courseName = " ";
         int courseDuration = 0;
         int currentSemester = 0;
 
@@ -76,7 +75,7 @@ public class StudentRegistration {
 
         //Output Screen 
         //Clear Screen
-        System.out.print(CLEAR_TERMINAL + OUTPUT_BANNER);
+        System.out.println(CLEAR_TERMINAL + OUTPUT_BANNER);
 
         //Print the information
         System.out.printf("Full Name: %s\n", studentFullName);
