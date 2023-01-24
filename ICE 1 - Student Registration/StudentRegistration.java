@@ -7,9 +7,6 @@
  * 
  */
 
-
-
-
 // Import Libraries
 import java.util.Scanner;
 
