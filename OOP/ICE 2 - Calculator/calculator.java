@@ -4,7 +4,8 @@ import java.util.Scanner;
  * Name: Kuldeep Mohanta
  * Date: January 20th, 2023
  * Application Name: calculator.java
- * Description: Application that performs simple mathematical calculations
+ * Description: This application takes user input character by character and determines the type of arthematic calculation to perform based on a determined set of common math
+ * symbols like (+) for addition and (/) for division. The program finally after validating user input, prints out the result in a readable format with decimal precision.
  * 
  */
 public class calculator {
@@ -67,8 +68,7 @@ public class calculator {
         //Trim excess input
         scanner.nextLine();
 
-        //Switch case
-
+        //Switch case - detect what arthematic operation to perform based on inputted specified character
         switch(operator)
         {
             //Addition
@@ -101,6 +101,7 @@ public class calculator {
                 break;
         }
 
+        // If validations are met and user input is appropriate, then print calculations to the user 
         if(valid)
         {
             //Print the calulations
