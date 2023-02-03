@@ -30,6 +30,11 @@ public class astrology {
 
     public static void main(String[] args) {
         
+        //Declaring variables
+        int birth_month = 0;
+        int birth_day = 0;
+        String user_name = "";
+
         // Initialize Scanner
         Scanner scanner = new Scanner(System.in);
 
@@ -39,9 +44,18 @@ public class astrology {
         // Print the banner
         System.out.println(INPUT_BANNER);
 
-        System.out.println("\n\nHello, This program is made  ");
-        
+        System.out.println("\n\nHello, This program is made tell you your Zodiac sign based on your birthday!");
 
+        System.out.println("Enter your birthday (month): ");
+
+        try{
+            //Process user input for the birth month as a numeric value
+            birth_month = scanner.nextInt();
+                
+            //Validate User input if it is within annual month range
+            if (0<= birth_month <=12)
+
+        }
         // Declaring variables
         
 
