@@ -33,6 +33,39 @@ public class overload {
         return number1 + number2;
     }
 
+
+    /*
+     * Calculate the square of a number
+     * @param number The number you want to square 
+     * @return the return value 
+     */
+
+    static int power(int number)
+    {
+        return number * number;
+    }
+
+    /*
+     * Calculate the number raised by a power
+     * @param number - The number that an operation will be performed on
+     * @param power - the power that will the number will be raised to
+     * @return The result
+     * 
+     */
+
+    static int power(int number, int power)
+    {
+        int result = 1;
+
+        //Before execution, condition to loop, after each iteration
+        for (int count = 0; count < power; count++)
+        {
+            result *= number; // 
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) 
     {
         //User Input
@@ -44,9 +77,13 @@ public class overload {
         // Overloaded Method
         System.out.println("Adding 2 floats: " + add(1.5f, 2.9f));
 
+        System.out.println("Squaring a number: " + power(4));
+        System.out.println("2 raised by the power of 8: " + power(2, 4));
+
         //Exit prompt
         System.out.print("Press enter to exit: ");
         scanner.nextLine();
+        scanner.close();
 
 
         
