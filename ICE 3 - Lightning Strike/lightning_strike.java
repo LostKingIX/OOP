@@ -76,13 +76,6 @@ import java.util.Scanner;
 
             }
 
-            else //Number is not a negative number - Validation succesful
-            {
-                //Calculate the distance using function
-                System.out.printf("The lightning struck %f km / %s miles away from you", distance(seconds),
-                distance_ft(seconds));
-            }
-
         }
 
         catch (Exception exception)
@@ -95,13 +88,16 @@ import java.util.Scanner;
 
         if(valid)
         {
+            //Create variable to store calculated distance data
+            double distance = Math.round(distance_ft(seconds));
+            double distance_ft = Math.round(distance(seconds));
+
             //Calculate the distance using function
-            System.out.printf("The lightning struck %f km / %s miles away from you", math.round(distance(seconds),
-            distance_ft(seconds));
+            System.out.printf("The lightning struck %.2f km / %.2f miles away from you", distance, distance_ft);
         }
 
           //Exit prompt
-          System.out.print("Press [Enter] to exit! ");
+          System.out.print("\n\nEnter 'r' to restart! ");
           scanner.nextLine();
           scanner.close();
   
