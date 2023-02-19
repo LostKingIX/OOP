@@ -47,58 +47,72 @@ import java.util.Scanner;
 
         //Declaring Variables
         double seconds = 0.0;
+        boolean restart = true;
         boolean valid = false;
+        boolean numeric = false;
 
         //Setting Title for Window
         System.out.printf(SET_TITLE, "Lightning Strike - Kuldeep Mohanta");
 
-        // Print the banner
-        System.out.println(INPUT_BANNER);
+        //Execute The program 
+        do{
 
-        //Prompt user for calculator
-        System.out.print("Instructions:\nCount the seconds between when you see the Lighining strike and you hear the thunderclap!\n\n");
+            // Print the banner
+            System.out.println(INPUT_BANNER);
 
-        System.out.print("Enter seconds: ");
-        String user_input = scanner.next();
+            //Prompt user for calculator
+            System.out.print("Instructions:\nCount the seconds between when you see the Lighining strike and you hear the thunderclap!\n\n");
 
-        try
-        {
-            //Get number input
-            seconds = Double.parseDouble(user_input);
-            
-            //Continue processing if data is true
-            valid = true;
-
-             //Check if seconds is less than zero - i.e. number is negative or 0
-            if (seconds <= 0)
+            do
             {
-                System.out.println("Error - Invalid Input!\n");
+                
+                System.out.print("Enter seconds: ");
+                String user_input = scanner.next();
 
+                try
+                {
+                    //Get number input
+                    seconds = Integer.parseInt(scanner.nextLine());
+                    
+                    //Continue processing if data is true
+                    numeric = true;
+
+                    //Check if seconds is less than zero - i.e. number is negative or 0
+                    if (seconds <= 0)
+                    {
+                        System.out.println("Error - Invalid Input!\n");
+
+                    }
+
+                }
+
+                catch (Exception exception)
+
+                {
+                    //Validation was not succesful
+                    valid = false;
+                    System.out.println("Error - Invalid Input!\n");
+                }
+
+                if(valid)
+                {
+                    //Create variable to store calculated distance data
+                    double distance = Math.round(distance_ft(seconds));
+                    double distance_ft = Math.round(distance(seconds));
+
+                    //Calculate the distance using function
+                    System.out.printf("The lightning struck %.2f km / %.2f miles away from you", distance, distance_ft);
+                }
             }
-
         }
 
-        catch (Exception exception)
+            
+        //Exit prompt
+        System.out.print("\n\nEnter 'r' to restart! ");
+        scanner.nextLine().equals("r");
 
-        {
-            //Validation was not succesful
-            valid = false;
-            System.out.println("Error - Invalid Input!\n");
-        }
+        } while(restart);
 
-        if(valid)
-        {
-            //Create variable to store calculated distance data
-            double distance = Math.round(distance_ft(seconds));
-            double distance_ft = Math.round(distance(seconds));
-
-            //Calculate the distance using function
-            System.out.printf("The lightning struck %.2f km / %.2f miles away from you", distance, distance_ft);
-        }
-
-          //Exit prompt
-          System.out.print("\n\nEnter 'r' to restart! ");
-          scanner.nextLine();
           scanner.close();
   
     }
