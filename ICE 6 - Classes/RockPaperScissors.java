@@ -24,10 +24,7 @@ public class RockPaperScissors {
     =======================
     """;
 
-
-
-
-    public static void main() {
+    public static void main(String [] args) {
 
 
         //Initialize scanner for user input
