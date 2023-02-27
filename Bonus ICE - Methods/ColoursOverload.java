@@ -25,6 +25,8 @@ public class ColoursOverload {
 
     static final String SET_COLOUR = "\033[%sm]";
 
+    //Methods
+
     //setting enum constants -> 
     enum Colour
     {
@@ -45,6 +47,74 @@ public class ColoursOverload {
 
     }
 
+    /*
+     * Prints text ending with a new line
+     * @param text the text to be printed
+     * 
+     */
+    static void print (String text)
+    {
+        System.out.println(text);
+    }
+
+    /*
+     * Prints colored text ending with a new line
+     * @param text the text to be printed
+     * 
+     */
+    static void print(String text, int foreground)
+    {
+        setColour(foreground);
+        System.out.println(text);
+        resetColours();
+    }
+
+    /*
+     * Prints colored text ending with a new line
+     * @param text - text the text to be printed
+     * @param foreground - text colour
+     * @param background - bg colour
+     * 
+     */
+    static void print(String text, int foreground, int background)
+    {
+        setColour(foreground);
+        setColour(background);
+        System.out.println(text);
+        resetColours();
+    }
+
+    /*
+     * Change the foreground colour of the text (text colour)
+     * @Param foreground font colour
+     * @param background bg color
+     */
+    static void setColour(int foreground)
+    {
+        System.out.printf(SET_COLOUR, foreground);
+    }
+
+
+    /*
+     * Change the foreground colour of the text (text colour)
+     * @Param foreground font colour
+     * @param background bg color
+     */
+    static void setColour(int foreground, int background)
+    {
+        background += 10; //Convert to bg color
+        System.out.printf(SET_COLOUR, foreground);
+        System.out.printf(SET_COLOUR, background);
+    }
+    
+
+    //Resets the colours of the terminal
+    static void resetColours()
+    {
+        System.out.printf(SET_COLOUR, 0);
+    }
+
+
     public static void main(String[] args) {
 
         // Initialize Scanner
@@ -53,12 +123,26 @@ public class ColoursOverload {
         //Setting Title for Window
          System.out.printf(SET_TITLE, "Colour Overload - Kuldeep Mohanta");
 
-        // Print the banner
-        System.out.println(INPUT_BANNER);
+        // Print the banner in colour
+        print(INPUT_BANNER, Colour.BLUE.bright(), Colour.CYAN.dark());
 
-        System.out.printf(SET_COLOUR, Colour.BLUE.bright());
+
+        //Printing all colours
+        System.out.println("All 16 foreground colours: ");
         
+        //Dark Colours
+        for(int count = Colour.BLACK.dark(); count <= Colour.GREY.dark(); count++)
+        {
+            print("Colour code: " + count, count);
 
+        }
+
+        //Bright Colours
+        for(int count = Colour.BLACK.bright(); count <= Colour.GREY.bright(); count++)
+        {
+            print("Colour code: " + count, count);
+            
+        }
 
         //Exit prompt
         System.out.print("Press enter to exit: ");

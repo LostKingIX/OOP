@@ -26,13 +26,6 @@ public class madlibs {
      //User Input - initialize scanner
     static Scanner scanner = new Scanner(System.in);
 
-    //User Greeting method
-    static void greet()
-    {
-        System.out.println("Hello!");
-    }
-
-
     /*
      * Recreate the input("Hello") from python
      * @Param prompt the string to be printed
