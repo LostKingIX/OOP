@@ -18,8 +18,8 @@ public class Game {
     {
         //Ask the user if they want to play again
         System.out.print("Play again? Choose (y/n): ");
-        scanner.nextLine().equals("y");
+        return scanner.nextLine().equals("y");
 
-        
+
     }
 }

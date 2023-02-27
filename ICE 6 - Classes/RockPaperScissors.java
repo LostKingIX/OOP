@@ -45,8 +45,12 @@ public class RockPaperScissors {
         {
             //Ask the user if they want to play again
             restart = Game.playAgain();
-        } while ();
+        } while (restart);
 
+    //Exit prompts
+    System.out.println("Press [Enter] to exit!");
+    scanner.nextLine();
+    scanner.close();
         
     }
 
