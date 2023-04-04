@@ -6,7 +6,7 @@
  * 
  */
 
-import java.util.ArrayList;
+//Import Libraries
 import java.util.Scanner;
 
 public class IceCreamShop
@@ -29,48 +29,46 @@ public class IceCreamShop
         // User input
         Scanner Scanner = new Scanner (System.in);
         
-        // An ArrayList of IceCream Flavours
-        // Start with zero elements
-        ArrayList<IceCream>flavours = new ArrayList<IceCream>();
+      
+        //Create a pre-defined array of IceCream Flavours
+        IceCream[] flavours = 
+        {
 
-      // Add at least 5 flavours
-      flavours.add(new IceCream("Vanilla", 1.00));
-      flavours.add(new IceCream("Chcolate", 1.50));
-      flavours.add(new IceCream("Strawberry", 3.00));
-      flavours.add(new IceCream("Maple", 3.50));
-      flavours.add(new IceCream("Mint", 2.00));
-
-      // Variables
-      boolean running = true; // is the app running?
-
-
-      // Tell me how many flavours
-      System.out.println("We currently have " + flavours.size());
+          // Adding 5 pre-defined flavours
+          new IceCream("Vanilla", 0.50),            //Index 0
+          new IceCream("Rocky Road", 2.00),            //Index 1
+          new IceCream("Cookies and Cream", 2.50),            //Index 2
+          new IceCream("Cookie Dough", 1.50),            //Index 3
+          new IceCream("Chocolate", 1.00),            //Index 3
+        };
 
       // Set the title
       System.out.printf(SET_TITLE, "Ice Cream Shop V2 - Kuldeep Mohanta");
 
-      // CLI Loop
-      do {
-        // Print how many flavours there are
-        System.out.println("We currently have " + flavours.size() + " flavours!");
+      // Tell me how many flavours
+      System.out.println(BANNER);
+
+
+      // Print how many flavours there are
+      System.out.println("We currently have " + flavours.length + " flavours!");
 
 
         // Print all the flavours
-        // Go through all indices of the ArraysList
-        for(int index = 0; index < flavours.size();index++)
+        for(int index = 0; index < flavours.length;index++)
         {
           //Print all flavour ID, Name, Price
           System.out.printf("%s - %s  - $%.2f \n", //Formatted as cash .2f
-            index + 1, flavours.get(index).getName(), flavours.get(index).getPrice());
 
+          //Increase value of index by one as loop cycles for the next indexed value (next ice cream)
+            index + 1, flavours[index].getName(), flavours[index].getPrice());
         }
 
         //Ask user for a command
-        System.out.print("Enter a command: ");
-        Scanner.next();
+        System.out.print("\nPress [Enter] to exit: ");
+        Scanner.nextLine();
+        Scanner.close();
         // Repeats
 
-      }while(running);
+      }
     }
-}
+     
