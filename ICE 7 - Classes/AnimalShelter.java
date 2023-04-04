@@ -1,20 +1,32 @@
+// Import Libraries
 import java.util.Scanner;
 
 /*
  * Name: Kuldeep Mohanta
- * Date: March
- * App Name:
- * Description:
+ * Date: April 3, 2023
+ * App Name: Animal Shelter
+ * Description: Utilizing classes and objects, this App makes use of an "animal" java class which 
+ * creates the base traits of an animal class (blueprint) and enables the creation of multiple objects
+ * from which. AnimalShelter allows the acceptance of animals and records their names, species, breed, 
+ * as well as colours, which it makes use of the Animal contstructor from the Animal Java class.
  */
 
 public class AnimalShelter
 {
     //Constants
     static final String SET_TITLE = "\033]0;%s\007";
-    static final String CLEAR_TERMINAL = "\033c";
+    static final String CLEAR_TERMINAL = "\033[H\033[2J";
     static final String BANNER = """
-            
-            """;
+    \n\n     |\\_/|                  
+        | @ @   Welcome to the Animal Shelter! 
+        |   <>              _  
+        |  _/\\------____ ((| |))
+        |               `--' |   
+    ____|_       ___|   |___.' 
+   /_/_____/____/_______|
+   \n\n""";
+   
+
 
     //User input
     static Scanner scanner = new Scanner(System.in);
@@ -75,10 +87,12 @@ public class AnimalShelter
 
     public static void main(String[] args) 
     {
+
+        // Clear Terminal and Print the banner
+        System.out.print(BANNER);
+
         // Set Title
         System.out.printf(SET_TITLE, "Animal Shelter - Kuldeep Mohanta");
-        
-
 
         //Input screen ~~~~~~~
 
@@ -87,15 +101,15 @@ public class AnimalShelter
         Animal animal1 = registerAnimal();
 
         //Display succesful registeration
-        input("Registered " + animal1.name + " in the database!\nPress [enter] to continue: ");
+        input("\nRegistered " + animal1.name + " in the database!\nPress [enter] to continue: \n");
         
         //Display succesful registeration
         Animal animal2 = registerAnimal();
-        input("Registered " + animal2.name + " in the database!\nPress [enter] to continue: ");
+        input("\nRegistered " + animal2.name + " in the database!\nPress [enter] to continue: \n");
 
         //Display succesful registeration
         Animal animal3 = registerAnimal();
-        input("Registered " + animal3.name + " in the database!\nPress [enter] to continue: ");
+        input("\nRegistered " + animal3.name + " in the database!\nPress [enter] to continue: \n");
 
         //Output screen ~~~~~~~
 
@@ -109,7 +123,7 @@ public class AnimalShelter
 
         
         //Exit Prompt
-        input("Press [Enter] to exit: ");
+        input("Press [Enter] to exit: \n");
 
 
 
