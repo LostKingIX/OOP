@@ -39,13 +39,19 @@ public class AnimalShelter
      * 
      */
 
+     /*
+     * Register a new animal into our shelter
+     * Ask for all animal's information
+     */
+
     static Animal registerAnimal()
     {
-        // Ask for all the animal's information
-        String name = input("Enter the animal's name: ");
+        //Ask for all the animal's information
+        String name = input("Enter the animal's name:");
         String species = input("Enter " + name + " species: ");
-        String breed = input("Enter " + name + " species: ");
-        String colour = input("Enter " + name + " species: ");
+        String breed = input("Enter "  + name + " breed: ");
+        String colour = input("Enter "  + name + " colour: ");
+    
 
         //Create a new Animal object
         // Done by calling the constructor Animal () and passing data
@@ -56,20 +62,52 @@ public class AnimalShelter
 
     }
 
+    //Print this animal's information
+    static void printAnimalData(Animal animal)
+    {
+        System.out.println("Name:  " + animal.name);
+        System.out.println("Species:  " + animal.species);
+        System.out.println("Breed:  " + animal.breed);
+        System.out.println("Colour:  " + animal.colour);
+        System.out.println("============================");
+    }
+
+
     public static void main(String[] args) 
     {
         // Set Title
         System.out.printf(SET_TITLE, "Animal Shelter - Kuldeep Mohanta");
         
-        // Clear Terminal and Print the banner
-        System.out.print(CLEAR_TERMINAL + BANNER);
+
+
+        //Input screen ~~~~~~~
 
         // Register 3 animals
         // Create 3 animal objects
         Animal animal1 = registerAnimal();
-        Animal animal2 = registerAnimal();
-        Animal animal3 = registerAnimal();
 
+        //Display succesful registeration
+        input("Registered " + animal1.name + " in the database!\nPress [enter] to continue: ");
+        
+        //Display succesful registeration
+        Animal animal2 = registerAnimal();
+        input("Registered " + animal2.name + " in the database!\nPress [enter] to continue: ");
+
+        //Display succesful registeration
+        Animal animal3 = registerAnimal();
+        input("Registered " + animal3.name + " in the database!\nPress [enter] to continue: ");
+
+        //Output screen ~~~~~~~
+
+        // Clear Terminal and Print the banner
+        System.out.print(CLEAR_TERMINAL + BANNER);
+        
+        //Printing animal information
+        printAnimalData(animal1);
+        printAnimalData(animal2);
+        printAnimalData(animal3);
+
+        
         //Exit Prompt
         input("Press [Enter] to exit: ");
 

@@ -1,5 +1,6 @@
+import java.util.Scanner;
 
-public class AnimalJava 
+public class Animal
 {
     // Each Animal will have a different implementation of these 
     String name; // What they respond to
@@ -22,18 +23,8 @@ public class AnimalJava
         this.breed = breed;
         this.colour = colour;
 
-        
-
     }
 
-    /*
-     * Print this pokemon's information
-     */
-
-     void printData()
-     {
-        System.out.printf("%s is a level %s Pokemon of type %s\n", name, level, type);
-     }
-
+   
     
 }
