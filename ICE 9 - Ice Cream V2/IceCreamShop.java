@@ -40,7 +40,7 @@ public class IceCreamShop
     public static void main(String[] args)
     {
         // User input
-        Scanner Scanner = new Scanner (System.in);
+        Scanner scanner = new Scanner (System.in);
 
         //An Arraylist of IceCream flavours, start with zero elements
         ArrayList<IceCream> flavours = new ArrayList<IceCream>();
@@ -53,11 +53,13 @@ public class IceCreamShop
         flavours.add(new IceCream("Mint", 2.00));
 
         //Varible declaration
-        boolean running = true;
+        boolean running = true; //is the app running?
         boolean numeric = true;
-        String command;
-        String name;
-        double price = 0;
+        String command; // allows the app to enable quit, add, del, sort functionality
+        String name; // allows the input of a flavour name
+        double price = 0; // allows the input of a flavour price
+        int index = 0; // specifies the value (location) of a flavour on the list
+        String sortBy; //stores how the user wants to sort the flavour list
 
 
         //Set the title
@@ -68,22 +70,27 @@ public class IceCreamShop
         {
             //Clear terminal
             System.out.print(CLEAR_TERMINAL);
-            
+
+            //Banner Output
+            System.out.println(BANNER);
+
             //Tell me how many flavours there are
             System.out.println("We currently have " + flavours.size() + " flavours");
 
             //Print all of the flavours
 
-            for(int index = 0; index < flavours.size(); index++)
+            for(int count = 0; count < flavours.size(); count++)
             {
-                System.out.printf("%s - %s - %s \n",
-                index + 1, flavours.get(index).getName(), flavours.get(index).getPrice());
+                System.out.printf("%s - %s - $%.2f \n",
+                count + 1, flavours.get(count).getName(), flavours.get(count).getPrice());
                 
             }
 
             //Ask for user input
             System.out.print("Enter a command: ");
-            command = Scanner.next();
+
+            //Scan for one word
+            command = scanner.next(); 
 
             //Quit app with user input
             if(command.equals("quit"))
@@ -95,12 +102,12 @@ public class IceCreamShop
             //Add a flavour
             else if(command.equals("add"))
             {
-                name = Scanner.next();
+                name = scanner.next();
 
-                //try to validate for double input
+                //try to validate for double
                 try 
                     {
-                        price = Scanner.nextDouble();
+                        price = scanner.nextDouble();
                         numeric = true;
 
                     } catch (Exception e)
@@ -109,11 +116,78 @@ public class IceCreamShop
                     }
 
                     //In case the price is not valid input (!numeric)
-                    if(!numeric) System.out.println("Error - Invalid Price entry!");
+                    if(!numeric)
+                    {
+                        System.out.println("Error - Invalid Price entry!");
+                    }
 
                     else flavours.add(new IceCream(name, price));
                 
             }
+
+            //Removing a flavour
+            else if (command.equalsIgnoreCase("del"))
+            {
+                //Try to get an index value to identify the flavour to remove
+                try
+                {
+                    index = scanner.nextInt();
+                    numeric = true;
+                } catch (Exception e) {
+                    numeric = false;
+                }
+
+                //Convert from ID to index
+                index--;
+
+                //Error in case index is not numeric OR out of bounds
+                if(!numeric || index < 0 || index >= flavours.size())
+                {
+                    System.out.println("Error - Index value is out of bounds! ");
+                }
+
+                else
+                {
+                    //Remove flavour from flavour list
+                    flavours.remove(index);
+                }
+
+               
+            }
+
+            //Sorting Flavours
+            else if (command.equals("sort"))
+            {
+                //sort by name
+                sortBy = scanner.next();
+
+                //if user enters that they would like to sort by name
+                if(sortBy.equals("name"))
+                    {
+                        flavours.sort(IceCream::compareNames);
+                    }
+
+                //if user enters that they would like to sort by price
+                else if(sortBy.equals("price"))
+                    {
+                        flavours.sort(IceCream::compareNames);
+                    }
+                
+                //Invalid sorting method inputted
+                else
+                    {
+                        System.out.println("Error - Invalid Sorting!");
+                    }
+            }
+
+            //Invalid command inputted
+            else
+                {
+                    System.out.println("Error - Invalid Command");
+                }
+
+            //Remove extra input
+            scanner.nextLine();
 
             // Hold program for a second
             waitAsecond();
