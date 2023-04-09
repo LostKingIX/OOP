@@ -56,7 +56,7 @@ public class IceCream {
      {
         //CompareTo is used by comparing strings repeating (in this case the flavour list)
         // by viewing the strings in lexigraphical order (aka. alphabetical order)
-        if (flavour1.getPrice() < flavour2.getPrice()) return -1;
+        if (flavour1.getPrice() > flavour2.getPrice()) return -1;
         else return 1;
      }
 }

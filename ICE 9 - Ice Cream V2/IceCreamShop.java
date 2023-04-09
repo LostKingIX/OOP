@@ -116,11 +116,8 @@ public class IceCreamShop
                     }
 
                     //In case the price is not valid input (!numeric)
-                    if(!numeric)
-                    {
-                        System.out.println("Error - Invalid Price entry!");
-                    }
-
+                    if(!numeric) System.out.println("Error - Invalid Price entry!");
+                    
                     else flavours.add(new IceCream(name, price));
                 
             }
@@ -170,7 +167,7 @@ public class IceCreamShop
                 //if user enters that they would like to sort by price
                 else if(sortBy.equals("price"))
                     {
-                        flavours.sort(IceCream::compareNames);
+                        flavours.sort(IceCream::comparePrices);
                     }
                 
                 //Invalid sorting method inputted
