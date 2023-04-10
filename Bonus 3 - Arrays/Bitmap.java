@@ -37,7 +37,7 @@ public class Bitmap {
          * 
          */
 
-         void input (Scanner Scanner)
+         void input (Scanner scanner)
          {
             //For each line of colour codes
             for(int countY = 0; countY < sizeY; countY++)
@@ -50,12 +50,14 @@ public class Bitmap {
                             // "Use  to access the letters of a string if it was a string array"
                             // Fred
                             // 0123
-                            bitmap[countX][countY] = Scanner.next().charAt(0); // index 0
+                            bitmap[countX][countY] = scanner.next().charAt(0); // index 0
+                            
                         }
+
+                    // Finished getting one line
+                    scanner.nextLine(); //Discard input
                 }
 
-         }
-
-    }
+        }
     
 }
