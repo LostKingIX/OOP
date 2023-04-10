@@ -1,10 +1,12 @@
+//Import Libraries
 import java.util.Scanner;
 
 /*
- * Name:
- * Date: 
- * Description:
- * App Name:
+ * Name: Kuldeep Mohanta
+ * Date: April 9th, 2023
+ * Description: This application is designed to present the days of the week to the user
+ * from which the user can choose a day to view if they have classes during the chosen day.
+ * App Name: ClassSchedule
  * 
  */
 
