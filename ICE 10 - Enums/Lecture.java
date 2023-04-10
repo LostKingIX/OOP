@@ -1,3 +1,10 @@
+/*
+ * Name: Kuldeep Mohanta
+ * Date: April 9th, 2023
+ * App Name: ClassSchedule
+ * 
+ */
+
 //New Data type - called Period 
 enum Period {AM, PM};
 
