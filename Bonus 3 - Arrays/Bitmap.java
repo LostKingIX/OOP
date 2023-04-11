@@ -1,15 +1,21 @@
 import java.util.Scanner;
 
 /*
- * Name:
- * Date:
- * App Name:
- * Description:
+ * Name: Kuldeep Mohanta
+ * Date: April 10, 2023
+ * App Name: Bitmap.java
+ * Description: This class file initializes the 2d array that will be used for the bitmap using x, y values. It also contains two void 
+ * functions that prompt user for input to create the bitmap with and then print the bitmap with the corresponding binary input values
  * 
  */
 
 
 public class Bitmap {
+
+    //Constants
+    private final String GREEN = "\033[102m";
+    private final String RESET_COLOUR = "\033[0m";
+
    
     //Class Variables
     //Private means only this class can access 
@@ -59,5 +65,25 @@ public class Bitmap {
                 }
 
         }
-    
+
+        /* Draws the bitmap */
+        void print ()
+        {
+            //Go through each line
+            for(int countY = 0; countY < sizeY; countY++)
+                {
+                    //Go through each code
+                    for(int countX = 0; countX < sizeX; countX++)
+                        {
+                            if(bitmap[countX][countY] == '0')
+                                System.out.print("  "); // 2 spaces so it's square
+                            
+                            else if (bitmap[countX][countY] == '1')
+                                System.out.print(GREEN + "  " + RESET_COLOUR);
+                        }
+
+                    //Go to the next line
+                    System.out.println();
+                }
+        }
 }
