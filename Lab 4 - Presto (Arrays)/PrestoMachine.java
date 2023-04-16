@@ -62,8 +62,9 @@ public class PrestoMachine
         ArrayList<PrestoCard> cards = new ArrayList<PrestoCard>();
      
         //Predetermined Card information
-        cards.add(new PrestoCard("Fred", 5.00));
+        cards.add(new PrestoCard("Bob", 5.00));
         cards.add(new PrestoCard("Lilly", 5.00));
+        cards.add(new PrestoCard("Fred", 2.50));
 
 
         //Variables
@@ -93,12 +94,12 @@ public class PrestoMachine
                 PrestoCard card = cards.get(i);
                 
                 //Print the next indexed card based on position
-                System.out.println((i+1) + " - " + card.getName() + " - Balance: " + String.format("$%.2f", card.getBalance()));
+                System.out.println((i) + " - " + card.getName() + " - Balance: " + String.format("$%.2f", card.getBalance()));
             }
 
-                //Prompt user for what they want to do with the presto card
-                System.out.print("\nOptions for Presto Card: ");
-                String input = scanner.nextLine().trim();
+            //Prompt user for what they want to do with the presto card
+            System.out.print("\nOptions for Presto Card: ");
+            String input = scanner.nextLine().trim();
 
                 //Exit Sequence
                 if (input.equals("quit")) 
@@ -110,8 +111,12 @@ public class PrestoMachine
 
                 else if (input.equals("add")) 
                 {
+                    //Prompt user to select which card they want to tap
+                    System.out.println("Enter the name and balance of a new card to register:");
+
                     //Receive input on the next word
-                    name = scanner.next();
+                    name = scanner.nextLine();
+
                     //Scan for next double value for balance parameter
                     balance = scanner.nextDouble();
 

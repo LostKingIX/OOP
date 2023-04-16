@@ -1,8 +1,8 @@
 public class PrestoCard {
 
     //Private variables for internal use
-    private static String name;
-    private static double balance;
+    private String name;
+    private double balance;
 
     //Constructor
     PrestoCard(String name, double balance)
@@ -14,12 +14,12 @@ public class PrestoCard {
     }
 
     //Accessors
-    static String getName()
+    String getName()
     {
         return name;
     }
 
-    static double getBalance()
+    double getBalance()
     {
         return balance;
     }
