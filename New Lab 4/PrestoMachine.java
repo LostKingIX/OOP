@@ -23,6 +23,7 @@ public class PrestoMachine
 
             }
         }
+
     //Constants
     static final String SET_TITLE = "\033]0;%s\007";
     
@@ -43,8 +44,15 @@ public class PrestoMachine
     \nThis program is designed to simulate the storage of Presto Cards with associated User details.
     \nBelow you can see we have a number of cards!
 
-            """;;
-    
+            """;
+
+    static final String PRESTO_CARD_BANNER = "  _____  _____  ______  _____   _______ ____     _____          _____  _____  \n" +
+    " |  __ \\|  __ \\|  ____|/ ____| |__   __/ __ \\   / ____|   /\\   |  __ \\|  __ \\ \n" +
+    " | |__) | |__) | |__  | (___      | | | |  | | | |       /  \\  | |__) | |  | |\n" +
+    " |  ___/|  _  /|  __|  \\___ \\     | | | |  | | | |      / /\\ \\ |  _  /| |  | |\n" +
+    " | |    | | \\ \\| |____ ____) |    | | | |__| | | |____ / ____ \\| | \\ \\| |__| |\n" +
+    " |_|    |_|  \\_\\______|_____/     |_|  \\____/   \\_____/_/    \\_\\_|  \\_\\_____/ \n";
+
 
 
 
@@ -56,15 +64,15 @@ public class PrestoMachine
 
         // Set the title - Print Banner and description
         System.out.printf(SET_TITLE, "Presto Card - Kuldeep Mohanta");
-        System.out.println(BANNER + INSTRUCTIONS);
+        System.out.println(PRESTO_CARD_BANNER + INSTRUCTIONS);
 
         //Create an Arraylist for the prestocards
         ArrayList<PrestoCard> cards = new ArrayList<PrestoCard>();
      
         //Predetermined Card information
-        cards.add(new PrestoCard("Bob", 5.00));
-        cards.add(new PrestoCard("Lilly", 5.00));
-        cards.add(new PrestoCard("Fred", 2.50));
+        cards.add(new PrestoCard("Fred", 5.00));
+        cards.add(new PrestoCard("Lilly", 15.00));
+        cards.add(new PrestoCard("Jimmy", 2.50));
 
 
         //Variables
