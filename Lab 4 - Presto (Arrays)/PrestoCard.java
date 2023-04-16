@@ -24,18 +24,24 @@ public class PrestoCard {
         return balance;
     }
 
-    public boolean tap(double fare) {
-        if (balance >= fare) {
-            balance -= fare;
-            return true;
-        }
-        else {
-            System.out.println("Error: Insufficient balance, Please top up more funds to use this card!");
-            return false;
-        }
+    //Used for the tap() function
+    public boolean tap(double fare) 
+    {
+        //Check if the balance amount is greater than the fare amount
+        if (balance >= fare) 
+            {
+                balance -= fare;
+                return true;
+            }
+        //If there is not enough balance to complete the transaction then print error statement
+        else 
+            {
+                System.out.println("Error: Insufficient balance, Please top up more funds to use this card!");
+                return false;
+            }
     }
    
-
+    //Add value to the balance based on passed through parameter
     public void topUp(double funds) 
     {
         balance += funds;
