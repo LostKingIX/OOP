@@ -159,6 +159,8 @@ public class PrestoMachine
                     //capture the name the user selects
                     name = scanner.nextLine();
 
+                    cardExists = false;
+
                     //Cycle through the arraylist of cards to find the name
                     for (int i = 0; i < cards.size(); i++) 
                         {
@@ -168,22 +170,24 @@ public class PrestoMachine
                                 {
                                     //remove the card from list according to located position in the array
                                     cards.remove(i);
-                                    waitAsecond();
-                                    
+                                            
                                     //print success statement
                                     System.out.println("Machine has succesfully removed " + name + "'s card!");
+                                    waitAsecond();
                                     scanner.nextLine();
+                                    cardExists = true;
                                     break;
                                 }
-                            else
+                        }
+                                if (!cardExists)
                                 {
                                     System.out.println(name + " is not currently registered in the system!");
                                     waitAsecond();
                                     scanner.nextLine();
-                                    break;
+
                                 }
                         }
-                }
+                
 
                 //User enters tap command
                 else if (input.equals("tap")) 
