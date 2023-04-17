@@ -116,18 +116,9 @@ public class PrestoMachine
 
                     input = scanner.nextLine();
 
+                    //Splitting the entered input into two index's to make locating the balance and name easier
                     String[] inputs = input.split(" ");
                     name = inputs[0];
-                    
-
-                    // //Receive input on the next word
-                    // name = scanner.nextLine();
-
-                    // //Scan for next double value for balance parameter
-                    // balance = scanner.nextDouble();
-
-                    // //Receive input on the next word
-                    // name = scanner.nextLine();
 
                     //Initializing balance parameter
                     balance = 0.0;
@@ -136,11 +127,16 @@ public class PrestoMachine
                         //Checking if balance value is numeric
                         balance = Double.parseDouble(inputs[1]);
                         
+                        //Capitalize name's first char for formatting
+                        String formatted_name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+
                         //Adding the new Card values assuming correct validation
-                        cards.add(new PrestoCard(name, balance));
+                        cards.add(new PrestoCard(formatted_name, balance));
 
                         //Printing confirmation message to the user that card was added succesfully
-                        System.out.println(name + " has been added to your Presto card collection.");
+                        System.out.println(formatted_name + " has been added to the machine's record with a balance of " + String.format("$%.2f", balance));
+                        waitAsecond();
+                        scanner.nextLine();
 
                     } catch (Exception e)
                     {
@@ -156,7 +152,7 @@ public class PrestoMachine
                     System.out.println("Enter the name of the card to delete:");
 
                     //capture the name the user selects
-                    name = scanner.next();
+                    name = scanner.nextLine();
 
                     //Cycle through the arraylist of cards to find the name
                     for (int i = 0; i < cards.size(); i++) 
@@ -170,7 +166,8 @@ public class PrestoMachine
                                     waitAsecond();
                                     
                                     //print success statement
-                                    System.out.println("Machine has succesfully removed the card!");
+                                    System.out.println("Machine has succesfully removed " + name + "'s card!");
+                                    scanner.nextLine();
                                     break;
                                 }
                         }
@@ -183,7 +180,7 @@ public class PrestoMachine
                     System.out.println("Enter the name of the card to tap:");
 
                     //Scan input for next string (name of card)
-                    name = scanner.next();
+                    name = scanner.nextLine();
 
                     //checking if card is found
                     boolean found = false;
@@ -202,8 +199,20 @@ public class PrestoMachine
                             if (card.tap(2.50)) 
                             {
                                 //If succesful, print confirmation statement
-                                System.out.println("Card tapped. New balance: $" + card.getBalance());
+                                System.out.println("Card tapped! ~~  New balance: " + String.format("$%.2f", card.getBalance()));
+                                
+                                //Hold System to let the user read the confirmation message
+                                waitAsecond();
+                                scanner.nextLine();
                             }
+                        else
+                            {
+                                //Allow the tap function to display error message regarding insufficient funds
+                                waitAsecond();
+                                
+                                scanner.nextLine();
+                            }
+                    
 
                             break;
                         }
@@ -212,7 +221,11 @@ public class PrestoMachine
                     //If the card does not exist, alert user with error
                     if (!found) 
                     {
+                        //Allow the tap function to display error message regarding insufficient funds
+                        waitAsecond();
+
                         System.out.println("Error - A card with that name does not exist in the system, please enter a card name that is registered.");
+                        scanner.nextLine();
                     }
 
                 }
@@ -220,36 +233,62 @@ public class PrestoMachine
                 //User enters top up command
                 if (input.equalsIgnoreCase("topup")) 
                 {
-                    //Receiving user input and scanning name
-                    name = scanner.next();
-                    //Scanning double value to understand how much the user wants to add to the balance of the card
-                    funds = scanner.nextDouble();
+                    //Prompt user for which user they want to add funds to
+                    System.out.println("Please enter the name of the card you wish to add funds to and how much money you would like to top up the card for: ");
 
-                    //Cycle through arraylist to find the card the user selected
-                    for (int i = 0; i < cards.size(); i++) 
+                    input = scanner.nextLine();
+
+                    //Splitting the entered input into two index's to make locating the balance and name easier
+                    String[] inputs = input.split(" ");
+                    name = inputs[0];
+
+                    // //Scanning double value to understand how much the user wants to add to the balance of the card
+                    // funds = scanner.nextDouble();
+                    try
                     {
-                        //Get the name of the card and ignore the case sensitivity
-                        PrestoCard card = cards.get(i);
 
-                        //if card name matches user input
-                        if (card.getName().equalsIgnoreCase(name)) 
+                        //Checking if funds value is numeric
+                        funds = Double.parseDouble(inputs[1]);
+
+                        //Cycle through arraylist to find the card the user selected
+                        for (int i = 0; i < cards.size(); i++) 
                         {
-                            //use the topUp() method to add funds
-                            card.topUp(funds);
+                            //Get the name of the card and ignore the case sensitivity
+                            PrestoCard card = cards.get(i);
 
-                            //Print success statement
-                            System.out.println("Successfully added funds to card " + card + ". New balance: $" + card.getBalance());
-                            
-                            //Card exists / success
-                            cardExists = true;
-                            break;
+                            //if card name matches user input
+                            if (card.getName().equalsIgnoreCase(name)) 
+                            {
+                                
+                                //use the topUp() method to add funds
+                                card.topUp(funds);
+
+                                //Print success statement
+                                System.out.println("Successfully added funds to " + card.getName() + "'s Card! \n~~ New balance: " + String.format("$%.2f", card.getBalance()));
+
+                                waitAsecond();
+                                scanner.nextLine();
+                                
+                                //Card exists / success
+                                cardExists = true;
+                                break;
+                            }
                         }
-                    }
+                    //Else if User has not entered numeric values for their funds
+                    }catch (Exception e)
+                        {
+                            //Error message if Funds value is not numeric
+                            System.out.println("Error -  Funds entry is not a numeric value.");
+                            waitAsecond();
+                            scanner.nextLine();
+                        }
 
                     //Card does not exist, cannnot find the card
                     if (!cardExists) 
                     {
                         System.out.println("Error: Card " + name + " is not registered in the system, please enter a different card that is recorded!");
+                        waitAsecond();
+                        scanner.nextLine();
                     }
                 }
           

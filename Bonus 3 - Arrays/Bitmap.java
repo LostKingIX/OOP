@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*
  * Name: Kuldeep Mohanta
  * Date: April 10, 2023
