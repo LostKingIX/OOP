@@ -10,6 +10,9 @@ import java.util.Scanner;
  * like 'tapping' or adding funds that are similar to real transit transactions. User's are able to add new card details. remove 
  * exisiting cards, tap recorded cards, as well as topup existing cards with more funds.
  * 
+ * ~~ Just a notice that I had attempted to do the Bonus 5% opportunity for this lab – Option 1. I had added the ability 
+ * to ‘del, tap, and topup’ by typing the card name instead of the index value **
+ * 
  */
 public class PrestoMachine
 {
