@@ -144,6 +144,8 @@ public class PrestoMachine
                     } catch (Exception e)
                     {
                         System.out.println("Error - Balance entry is not a numeric value.");
+                        waitAsecond();
+                        scanner.nextLine();
                     }
                     
                 }
@@ -172,6 +174,12 @@ public class PrestoMachine
                                     System.out.println("Machine has succesfully removed " + name + "'s card!");
                                     scanner.nextLine();
                                     break;
+                                }
+                            else
+                                {
+                                    System.out.println(name + " is not currently registered in the system!");
+                                    waitAsecond();
+                                    scanner.nextLine();
                                 }
                         }
                 }
