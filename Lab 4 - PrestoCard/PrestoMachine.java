@@ -180,6 +180,7 @@ public class PrestoMachine
                                     System.out.println(name + " is not currently registered in the system!");
                                     waitAsecond();
                                     scanner.nextLine();
+                                    break;
                                 }
                         }
                 }
